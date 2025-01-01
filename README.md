@@ -8,7 +8,7 @@ To implement  SR flipflop using verilog and validating their functionality using
 
 Quartus prime
 
-**THEORY**
+**THEORY**:
 
 SR Flip-Flop SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
 
@@ -32,17 +32,56 @@ By using three variable K-Map, we can get the simplified expression for next sta
  
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=S+R′Q(t)Q(t+1)=S+R′Q(t)
 
-**Procedure**
+**Procedure**:
+ 1. Type the program in Quartus software.
+ 2. Compile and run the program.
+ 3. Generate the RTL schematic and save the logic diagram.
+ 4. Create nodes for inputs and outputs to generate the timing diagram.
+ 5. Generate the timing diagram for different input combinations.
 
-/* write all the steps invloved */
 
-**PROGRAM**
+
+**PROGRAM**:
+
+ developed by :  lakshmen prashanth R
+ 
+ reg no :  24007066
+
+```
+module exp(s, r, clk, q, qbar);
+  input s, r, clk;
+  output reg q, qbar;
+  initial begin
+    q = 0;
+    qbar = 1;
+  end
+  always @(posedge clk) begin
+    if (s & r) begin
+      q = 1'bx;
+      qbar = 1'bx;
+    end else if (s) begin
+      q = 1;
+      qbar = 0;
+    end else if (r) begin
+      q = 0;
+      qbar = 1;
+    end
+  end
+endmodule
+```
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
-**RTL LOGIC FOR FLIPFLOPS**
+**RTL LOGIC FOR FLIPFLOPS**:
+![Screenshot 2025-01-01 203935](https://github.com/user-attachments/assets/dc7d1c0a-51e7-49e1-b99a-e1ecdf27db96)
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
 
-**RESULTS**
+**TIMING DIGRAMS FOR FLIP FLOPS**:
+
+![Screenshot 2025-01-01 204114](https://github.com/user-attachments/assets/8c6a44b0-7be4-420e-9efc-e9443c9e75c7)
+
+
+**RESULTS**:
+
+Thus, the SR flip-flop was implemented using Verilog, and its functionality was validated using functional tables.
